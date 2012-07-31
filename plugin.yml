@@ -1,0 +1,25 @@
+name: FoodFiller
+description: Don't get hungry again!
+version: 1.2
+author: daninator1
+website:  http://www.bukkit.org/
+
+main: me.daninator1.foodfiller.FoodFiller
+
+commands:
+ food:
+    description: Set your Food Level to full.
+ ffreeze:
+    description: Freeze your Food Level.
+ funfreeze:
+    description: Unfreeze your Food Level.
+
+permissions:
+  foodfiller.food:
+    description: Set your Food Level to full.
+    default: op
+  foodfiller.freeze:
+    description: Freeze/Unfreeze your Food Level.
+    default: op
+  
+
