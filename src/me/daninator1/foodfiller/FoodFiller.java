@@ -6,28 +6,31 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Event;
-import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class FoodFiller extends JavaPlugin{
-	public static FoodFiller plugin;
+	
 	public final ArrayList<Player> playerList = new ArrayList<Player>();
-	FoodFillerEntityListener entityListener = new FoodFillerEntityListener(this);
+	public FoodFillerListener foodfillerListener = new FoodFillerListener();
 
 	@Override
 	public void onDisable() {
+		
 		System.out.println("FoodFiller successfully disabled!");
 		
 	}
 
 	@Override
 	public void onEnable() {
-		PluginManager pm = getServer().getPluginManager();
-        
-        FoodFillerEntityListener entityListener = new FoodFillerEntityListener(this);
-        pm.registerEvent(Event.Type.FOOD_LEVEL_CHANGE, entityListener, Event.Priority.Normal, this);
+		
+		
 		System.out.println("FoodFiller successfully enabled!");
+		
+	}
+	
+	public void manageStuff() {
+		
+		getServer().getPluginManager().registerEvents(foodfillerListener, this);
 		
 	}
 	

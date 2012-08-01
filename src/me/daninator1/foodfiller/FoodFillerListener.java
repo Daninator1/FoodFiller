@@ -1,17 +1,15 @@
 package me.daninator1.foodfiller;
 
 import org.bukkit.entity.Player;
-import org.bukkit.event.entity.EntityListener;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 
-public class FoodFillerEntityListener extends EntityListener {
+public class FoodFillerListener implements Listener {
 	
 	public static FoodFiller plugin;
-	
-	public FoodFillerEntityListener(FoodFiller FoodFiller) {
-		plugin = FoodFiller;
-	}
-	
+		
+	@EventHandler
 	public void onFoodLevelChange(FoodLevelChangeEvent event) {
 		{
 		    if (((event.getEntity() instanceof Player)) && plugin.playerList.contains(event.getEntity())){
